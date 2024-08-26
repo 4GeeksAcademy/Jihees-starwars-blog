@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import logo from '.../assets/Star_Wars_Logo.svg.png'
+
 
 export const Navbar = () => {
 	return (
