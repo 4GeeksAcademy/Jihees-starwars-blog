@@ -1,3 +1,12 @@
 /* 
     General Styles
 */
+.btn-outline-danger {
+    /* float: right; */
+    color: red;
+}
+
+.details-card {
+    width: 80%;
+    max-height: 80%;
+}
