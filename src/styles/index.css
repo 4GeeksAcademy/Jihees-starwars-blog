@@ -1,6 +1,8 @@
-/* 
-    General Styles
-*/
+
+html, body {
+    background-color: black;
+}
+
 .btn-outline-danger {
     /* float: right; */
     color: red;
@@ -10,3 +12,12 @@
     width: 80%;
     max-height: 80%;
 }
+
+.homepage h1 {
+    color: #FCE520;
+}
+
+.overflow-scroll {
+    overflow-y: hidden !important;
+}
+

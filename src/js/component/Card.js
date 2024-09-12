@@ -51,8 +51,8 @@ export function Card({ item, index, category }) {
     };
 
     return (
-        <div className="card" style={{ minWidth: '18rem' }}>
-            <img className="card-img-top" onError={handleImgErr} src={getImgUrl()} alt={item.name} style={imgStyle} />
+        <div className="card bg-secondary m-3" style={{ minWidth: '18rem' }}>
+            <img className="card-img-top rounded" onError={handleImgErr} src={getImgUrl()} alt={item.name} style={imgStyle} />
             <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">
@@ -70,10 +70,10 @@ export function Card({ item, index, category }) {
 
                 <div className="buttonGroup mt-auto d-flex justify-content-between">
                     <Link to={`/details/${category}/${index}`}>
-                        <button className="btn btn-outline-primary">Learn More!</button>
+                        <button className="btn btn-outline-light">Learn More!</button>
                     </Link>
 
-                    <button onClick={handleFavorites} className="Favorite btn btn-outline-danger">
+                    <button onClick={handleFavorites} className="Favorite btn btn-danger">
                         <i className={isFavorite ? "fa-solid fa-heart" : "fa-regular fa-heart"}></i>
                     </button>
                 </div>

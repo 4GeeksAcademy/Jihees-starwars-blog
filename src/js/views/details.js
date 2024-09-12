@@ -24,7 +24,7 @@ export const Details = ({ category }) => {
     const GUIDE_URL = "https://starwars-visualguide.com/assets/img";
 
     const getImgUrl = () => {
-        if (planet.name === "Tatooine") {
+        if (imgErr && planet.name === "Tatooine") {
             return tatooineImg;
         } else if (planet.name === "Bespin") {
             return bespinImg;
@@ -38,11 +38,11 @@ export const Details = ({ category }) => {
     }
 
     return (
-        <div className="vh-100 d-flex justify-content-center align-content-center">
-            <div className="details-card card mb-3">
+        <div className="d-flex justify-content-center align-content-center">
+            <div className="details-card bg-secondary card mb-3">
                 <div className="row g-0">
-                    <div className="col-md-4">
-                        <img src={getImgUrl()} onError={handleImgErr} className="img-fluid rounded-start" alt="..." />
+                    <div className="col-md-4 d-flex align-items-center">
+                        <img src={getImgUrl()} onError={handleImgErr} className="img-fluid rounded h-100" alt="..." />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">

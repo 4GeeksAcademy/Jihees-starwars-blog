@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-
+import "../../styles/navbar.css";
+import swLogo from "../../img/s_w_logo.png"
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -11,30 +12,31 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-light bg-light mb-3 p-3">
+    <nav className="navbar mb-3 px-3 py-0">
       <Link to="/">
-        <span className="navbar-brand mb-0 h1">Star Wars</span>
+        <img id="logo" src={swLogo} alt="Starwars Logo" />
       </Link>
       <div className="btn-group">
         <button
           type="button"
-          className="btn btn-primary dropdown-toggle"
+          className="navbar-btn btn dropdown-toggle"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
+          <i className="me-1 fa-regular fa-star"></i>
           Favorites [{store.favorites.length}]
         </button>
-        <ul className="dropdown-menu dropdown-menu-end">
+        <ul className="dropdown-menu dropdown-menu-dark mt-1 dropdown-menu-end">
           {store.favorites && store.favorites.length > 0 ? (
             store.favorites.map((item, index) => (
               <li key={index} className="dropdown-item d-flex justify-content-between align-items-center">
-                <Link to={`/details/${item.category}/${item.index}`}>{item.name}</Link>
-                <button
-                  className="btn btn-sm btn-danger ms-2"
+                <Link className="favlink" to={`/details/${item.category}/${item.index}`}>{item.name}</Link>
+                <span
+                  className="ms-2"
                   onClick={() => handleDelete(index)}
                 >
                   <i className="fas fa-trash-alt"></i>
-                </button>
+                </span>
               </li>
             ))
           ) : (
