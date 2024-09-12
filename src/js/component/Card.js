@@ -70,7 +70,13 @@ export function Card({ item, index, category }) {
 
                 <div className="buttonGroup mt-auto d-flex justify-content-between">
                     <Link to={`/details/${category}/${index}`}>
-                        <button className="btn btn-outline-light">Learn More!</button>
+                        <button onClick={() => {
+                            const dropdownMenu = document.querySelector(".dropdown-menu");
+                            if (dropdownMenu && dropdownMenu.className.includes("show")) {
+                                const dropdownBtn = document.querySelector(".dropdown-toggle")
+                                dropdownBtn.click()
+                            }
+                        }} className="btn btn-outline-light">Learn More!</button>
                     </Link>
 
                     <button onClick={handleFavorites} className="Favorite btn btn-danger">

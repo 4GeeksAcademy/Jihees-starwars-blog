@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/navbar.css";
@@ -6,6 +6,12 @@ import swLogo from "../../img/s_w_logo.png"
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+
+  useEffect(() => {
+    return () => {
+      console.log("Nav Unmounted")
+    }
+  })
 
   const handleDelete = (index) => {
     actions.deleteFavorite(index);
@@ -21,7 +27,8 @@ export const Navbar = () => {
           type="button"
           className="navbar-btn btn dropdown-toggle"
           data-bs-toggle="dropdown"
-          aria-expanded="false"
+          aria-expanded={true}
+          data-bs-auto-close="false"
         >
           <i className="me-1 fa-regular fa-star"></i>
           Favorites [{store.favorites.length}]
